@@ -23,7 +23,7 @@ api.verify_credentials()
 
 # Search Tweets
 with open("data.json","w") as outfile:
-    for tweet in tweepy.Cursor(api.search,q="#oSoc20",tweet_mode="extended",lang="es").items(10):
+    for tweet in tweepy.Cursor(api.search,q="#oSoc20",tweet_mode="extended",lang="es",monitor_rate_limit=True, wait_on_rate_limit=True,).items():
         print(tweet._json["created_at"])
         print(tweet._json["full_text"])
         #print(tweet._json["metadata"]["iso_language_code"])
