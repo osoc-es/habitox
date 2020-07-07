@@ -4,7 +4,7 @@ import json
 import sqlalchemy
 
 
-# Authentication KEYS
+# Authentication KEYS- PRIVATE
 consumer_key = ""
 consumer_secret = ""
 access_token = ""
