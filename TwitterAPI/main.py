@@ -38,27 +38,21 @@ months = {'Jan': 1,
           }
 
 # Search Tweets
-with open("data.json", "w") as outfile:
-    for tweet in tweepy.Cursor(api.search, q="#oSoc20", tweet_mode="extended", lang="es", monitor_rate_limit=True, wait_on_rate_limit=True).items():
-        tweet_json = tweet._json
 
-        id = tweet_json["id"]
-        text = tweet_json["full_text"]
-        date_array = tweet_json["created_at"].split()
-        day= (int)(date_array[2])
-        date =date_array[5]+"-"+(str)(months[date_array[1]])+"-"+(str)(day)
-        hour = date_array[3] 
-        lang = tweet_json["metadata"]["iso_language_code"]
-        full_date = date + " " + hour
-        
-        
-        if (not tweet.retweeted) and ('RT @' not in tweet_json["full_text"]):
-            dbTweet = tweets(id,text.encode(encoding="utf-8"),full_date,lang)
-            db.session.add(dbTweet)
+for tweet in tweepy.Cursor(api.search, q="#oSoc20", tweet_mode="extended", lang="es", monitor_rate_limit=True, wait_on_rate_limit=True).items():
+    tweet_json = tweet._json
 
-        #db.session.commit()
-        # print(tweet._json["metadata"]["iso_language_code"])
-        #print()
-        json.dump(tweet._json, outfile)
-        #print(json.dumps(tweet._json, indent=2))
+    id = tweet_json["id"]
+    text = tweet_json["full_text"]
+    date_array = tweet_json["created_at"].split()
+    day = (int)(date_array[2])
+    date = date_array[5]+"-"+(str)(months[date_array[1]])+"-"+(str)(day)
+    hour = date_array[3]
+    lang = tweet_json["metadata"]["iso_language_code"]
+    full_date = date + " " + hour
+
+    if (not tweet.retweeted) and ('RT @' not in tweet_json["full_text"]):
+        dbTweet = tweets(id, text.encode(encoding="utf-8"), full_date, lang)
+        db.session.add(dbTweet)
+
 db.session.commit()
