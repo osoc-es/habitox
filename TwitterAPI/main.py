@@ -36,23 +36,30 @@ months = {'Jan': 1,
           'Nov': 11,
           'Dec': 12
           }
-
+j=0
 # Search Tweets
+searchWords=["teletrabajo","workingfromhome","quarantine","covid_19","coronavirus","stayathome","stayhome","lockdown","QuarantineAndChill"]
+for i in searchWords:
+    j=0
+    for tweet in tweepy.Cursor(api.search, q=i+" -filter:retweets", tweet_mode="extended", lang="es", monitor_rate_limit=True, wait_on_rate_limit=True).items():
+        
+        tweet_json = tweet._json
 
-for tweet in tweepy.Cursor(api.search, q="#oSoc20", tweet_mode="extended", lang="es", monitor_rate_limit=True, wait_on_rate_limit=True).items():
-    tweet_json = tweet._json
+        id = tweet_json["id"]
+        text = tweet_json["full_text"]
+        date_array = tweet_json["created_at"].split()
+        day = (int)(date_array[2])
+        date = date_array[5]+"-"+(str)(months[date_array[1]])+"-"+(str)(day)
+        hour = date_array[3]
+        lang = tweet_json["metadata"]["iso_language_code"]
+        full_date = date + " " + hour
 
-    id = tweet_json["id"]
-    text = tweet_json["full_text"]
-    date_array = tweet_json["created_at"].split()
-    day = (int)(date_array[2])
-    date = date_array[5]+"-"+(str)(months[date_array[1]])+"-"+(str)(day)
-    hour = date_array[3]
-    lang = tweet_json["metadata"]["iso_language_code"]
-    full_date = date + " " + hour
+        if (not tweet.retweeted) and ('RT @' not in tweet_json["full_text"]):
+            print(i+" : "+ str(j))
+            j+=1
+            dbTweet = tweets(id, text.encode(encoding="utf-8"), full_date, lang)
+            db.session.add(dbTweet)
+            if(j%100==0):
+                db.session.commit()
 
-    if (not tweet.retweeted) and ('RT @' not in tweet_json["full_text"]):
-        dbTweet = tweets(id, text.encode(encoding="utf-8"), full_date, lang)
-        db.session.add(dbTweet)
-
-db.session.commit()
+    
