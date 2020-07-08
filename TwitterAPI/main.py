@@ -40,8 +40,9 @@ j=0
 # Search Tweets
 searchWords=["teletrabajo","workingfromhome","quarantine","covid_19","coronavirus","stayathome","stayhome","lockdown","QuarantineAndChill"]
 for i in searchWords:
+    print(i)
     j=0
-    for tweet in tweepy.Cursor(api.search, q=i+" -filter:retweets", tweet_mode="extended", lang="es", monitor_rate_limit=True, wait_on_rate_limit=True, since='2017-02-16', until='2017-02-17').items():
+    for tweet in tweepy.Cursor(api.search, q=i+" -filter:retweets", tweet_mode="extended", lang="es", monitor_rate_limit=True, wait_on_rate_limit=True, until='2020-06-15').items():
         
         tweet_json = tweet._json
 
