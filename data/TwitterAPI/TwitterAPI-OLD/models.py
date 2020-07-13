@@ -17,3 +17,4 @@ class tweets(db.Base):
         self.fulltext = fulltext
         self.date = date
         self.lang = lang
+        

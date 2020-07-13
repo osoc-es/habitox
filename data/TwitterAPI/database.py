@@ -5,7 +5,12 @@ from sqlalchemy.orm import sessionmaker
 
 
 # Main Engine for MySQL
-engine = create_engine('mysql://fbp:123456@localhost/osoc')
+user="fbp"
+password="123456"
+server_ip="localhost"
+database="osoc"
+
+engine = create_engine('mysql://'+user+':'+password+'@'+server_ip+'/'+database)
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()

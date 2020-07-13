@@ -1,25 +1,27 @@
 # Libraries and cool stuff
 import GetOldTweets3 as got
-import database as db
-from models import tweets
-from datetime import date, timedelta
+import .database as db
+from .models import tweets
+from datetime import date, timedelta, datetime
 import time
 
 # Main Searches --> Keypoints of projects?¿
 searchWords = ["teletrabajo", "workingfromhome",
                "cuarentena", "CuandoEstoSeAcabe"]
+
+today=datetime.today().date()
 # We define date to start searching from (Beginings of THE APOCALYPSE!)
-d = date(2020, 2, 1)
+d = date(2020, 1, 1)
 # We get the next day(In order to reduce de amount of tweets in the Data Structure of the Librarie- Really bad choice of Data Structure....)
 dNext = d+timedelta(days=1)
-for day in range(0, 120):  # 4 months roughly 120 days
+while(d != today):  # Get Old tweets until today
     print(d)
     for i in searchWords:
         # Debug console
         print(i+"\n"+"========================================================================")
         # We get the Tweets in spanish the most popular ones, if too many only 1000
         tweetCriteria = got.manager.TweetCriteria().setQuerySearch(i).setSince(
-            str(d)).setUntil(str(dNext)).setLang('es').setTopTweets(True).setMaxTweets(1000)
+            str(d)).setUntil(str(dNext)).setLang('es').setTopTweets(True).setMaxTweets(1000).setEmoji("unicode")
         k = 0
         # print(got.manager.TweetManager.getTweets(tweetCriteria))
         try:
@@ -31,7 +33,7 @@ for day in range(0, 120):  # 4 months roughly 120 days
                 date = j.date
 
                 dbTweet = tweets(tweet_id=id, fulltext=text.encode(
-                    encoding="utf-8"), date=date, lang=lang)
+                    encoding="unicode"), date=date, lang=lang)
                 db.session.add(dbTweet)
                 k += 1
                 print(i+" : "+str(k))
