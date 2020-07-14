@@ -4,15 +4,16 @@ import json
 import database as db
 from models import tweets
 from datetime import datetime
+import os
 
 with open('config.json') as config_file:
     config = json.load(config_file)
 
 # Authentication KEYS- PRIVATE
-consumer_key = config["Twitter"]["consumer_key"]
-consumer_secret = config["Twitter"]["consumer_secret"]
-access_token = config["Twitter"]["access_token"]
-access_token_secret = config["Twitter"]["access_token_secret"]
+consumer_key = os.environ.get("consumer_key-Twitter")
+consumer_secret = os.environ.get("consumer_secret-Twitter")
+access_token = os.environ.get("access_token-Twitter")
+access_token_secret = os.environ.get("access_token_secret-Twitter")
 
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)

@@ -2,19 +2,21 @@
 import GetOldTweets3 as got
 import database as db
 from models import tweets
-from datetime import date, timedelta
+from datetime import date, timedelta, datetime
 import time
 
 # Main Searches --> Keypoints of projects?¿
-searchWords = ["teletrabajo", "workingfromhome",
-               "cuarentena", "CuandoEstoSeAcabe"]
+keyWords = ["futbol", "deporte en casa", "ejercicio", "fitness", "bicicleta", "cardio", "just dance", "Bárbara de Regil", "adelgazar", "GAP", "postre", "tarta", "pan", "reposteria", "bolleria", "recetas", "cocina en casa", "dieta", "cocina saludable", "cerveza", "diy", "educacion", "manualidades", "coco melon", "dibujos animados", "peppa pig", "la patrulla canina", "tutorial",
+            "the office", "zoom", "teams", "discord", "google meet", "slack", "jitsi", "ordenador", "portatil", "monitor", "webcam", "microfono", "respondus", "ERTE", "proctoring", "moodle", "moodle exams", "fase 1", "restricciones", "aeropuerto", "mascarilla", "guantes", "normativa", "sintomas", "wuhan", "hospitales", "centros de salud", "remedios", "aplausos", "resistire", "caceroladas"]
+
 # We define date to start searching from (Beginings of THE APOCALYPSE!)
-d = date(2020, 2, 1)
+d = date(2020, 1, 1)
 # We get the next day(In order to reduce de amount of tweets in the Data Structure of the Librarie- Really bad choice of Data Structure....)
 dNext = d+timedelta(days=1)
-for day in range(0, 120):  # 4 months roughly 120 days
+
+while (datetime.now().date() == d):  # Until today
     print(d)
-    for i in searchWords:
+    for i in keyWords:
         # Debug console
         print(i+"\n"+"========================================================================")
         # We get the Tweets in spanish the most popular ones, if too many only 1000
@@ -51,5 +53,3 @@ for day in range(0, 120):  # 4 months roughly 120 days
     # Commit just in case
     db.session.commit()
 
-keyWords = ["futbol", "deporte en casa", "ejercicio", "fitness", "bicicleta", "cardio", "just dance", "Bárbara de Regil", "adelgazar", "GAP", "postre", "tarta", "pan", "reposteria", "bolleria", "recetas", "cocina en casa", "dieta", "cocina saludable", "cerveza", "diy", "educacion", "manualidades", "coco melon", "dibujos animados", "peppa pig", "la patrulla canina", "tutorial",
-         "the office", "zoom", "teams", "discord", "google meet", "slack", "jitsi", "ordenador", "portatil", "monitor", "webcam", "microfono", "respondus", "ERTE", "proctoring", "moodle", "moodle exams", "fase 1", "restricciones", "aeropuerto", "mascarilla", "guantes", "normativa", "sintomas", "wuhan", "hospitales", "centros de salud", "remedios", "aplausos", "resistire", "caceroladas"]
