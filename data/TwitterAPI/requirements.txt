@@ -2,5 +2,4 @@ sqlalchemy
 mysqlclient
 tweepy
 datetime
-json
 GetOldTweets3

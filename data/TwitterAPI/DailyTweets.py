@@ -15,6 +15,8 @@ consumer_secret = os.environ.get("consumer_secret-Twitter")
 access_token = os.environ.get("access_token-Twitter")
 access_token_secret = os.environ.get("access_token_secret-Twitter")
 
+
+
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 
@@ -41,7 +43,7 @@ months = {'Jan': 1,
 
 # Search KeyWords
 keyWords = ["futbol", "deporte en casa", "ejercicio", "fitness", "bicicleta", "cardio", "just dance", "Bárbara de Regil", "adelgazar", "GAP", "postre", "tarta", "pan", "reposteria", "bolleria", "recetas", "cocina en casa", "dieta", "cocina saludable", "cerveza", "diy", "educacion", "manualidades", "coco melon", "dibujos animados", "peppa pig", "la patrulla canina", "tutorial",
-         "the office", "zoom", "teams", "discord", "google meet", "slack", "jitsi", "ordenador", "portatil", "monitor", "webcam", "microfono", "respondus", "ERTE", "proctoring", "moodle", "moodle exams", "fase 1", "restricciones", "aeropuerto", "mascarilla", "guantes", "normativa", "sintomas", "wuhan", "hospitales", "centros de salud", "remedios", "aplausos", "resistire", "caceroladas"]
+         "the office", "zoom", "teams", "discord", "google meet", "slack", "jitsi", "ordenador", "portatil", "monitor", "webcam", "microfono", "respondus", "ERTE", "proctoring", "moodle", "moodle exams", "fase 1", "restricciones", "aeropuerto", "mascarilla", "guantes", "normativa", "sintomas", "wuhan", "hospitales", "centros de salud", "remedios", "aplausos", "resistire", "caceroladas","#conmigo"]
 
 
 for i in keyWords:
@@ -64,7 +66,7 @@ for i in keyWords:
             
             print(date+" : "+text)
             j+=1
-            dbTweet = tweets(id, text.encode(encoding="UTF-8"), full_date, lang)
+            dbTweet = tweets(id, text.encode(encoding="utf-8"), full_date, lang)
             db.session.add(dbTweet)
             if(j%100==0):
                 print("Batch of 100")
