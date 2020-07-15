@@ -1,13 +1,14 @@
 Estos datos son una instantánea: habría que correrlos una única vez y mandarlos a la base de datos para graficarlos.
 
 groups={
-    'Deporte Compras':[’Mancuerna’,’Bici estática’,’Cinta correr’],
-    'Postres':['Tarta','Torrijas','Brownie','Bizcocho',’Galletas’],
-    'Tartas':['Tarta de chocolate','Tarta de manzana','Tarta de queso','Tarta tres chocolates']
+	'Deporte Compras':[’Mancuerna’,’Bici estática’,’Cinta correr’],
+	'Postres':['Tarta','Torrijas','Brownie','Bizcocho',’Galletas’],
+	'Tartas':['Tarta de chocolate','Tarta de manzana','Tarta de queso','Tarta tres chocolates'],
+	'IMV':['IMV','Ingreso Minimo Vital']
 }
 
 Ejecutar este segundo grupo con gprop = 'youtube' (son búsquedas de YouTube)
 groups={
-    'Resistiré':['Resistiré','Dúo Dinámico'],
+	'Resistiré':['Resistiré','Dúo Dinámico'],
 	'YTKids':['Peppa Pig','Patrulla Canina'],
 }
