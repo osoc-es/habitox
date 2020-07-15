@@ -25,6 +25,8 @@ def getData(searchData):
     return data
 
 
+
+
 # Grupos de Analisis
 groups={
     'teleenseñanza':['Moodle','Microsoft Teams','Zoom','Google Meet'],

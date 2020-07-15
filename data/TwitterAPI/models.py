@@ -1,9 +1,22 @@
 import database as db
-from sqlalchemy import create_engine,Column, Integer, String, Text, DateTime
+from sqlalchemy import create_engine,Column, Integer, String, Text, DateTime, Date
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-# Tweet Class
+class trend(db.Base):
+    __tablename__ = 'trends'
+    id=Column(Integer,primary_key=True,autoincrement=True)
+    group = Column(String(128))
+    name = Column(String(128))
+    date = Column(Date)
+    weight = Column(Integer)
+    
+    def __init__(self,group,name,date,weight):
+        self.group = group
+        self.name = name
+        self.date = date
+        self.weight = weight
+
 class tweets(db.Base):
     __tablename__ = 'tweets'
     id=Column(Integer,primary_key=True,autoincrement=True)
