@@ -14,6 +14,8 @@ d = date(2020, 1, 1)
 # We get the next day(In order to reduce de amount of tweets in the Data Structure of the Librarie- Really bad choice of Data Structure....)
 dNext = d+timedelta(days=1)
 
+
+
 while (datetime.now().date() == d):  # Until today
     print(d)
     for i in keyWords:

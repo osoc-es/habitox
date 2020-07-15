@@ -1,4 +1,4 @@
-# Import Libraries - Twitter API, JSON, SQLAlchemy
+# Import Libraries - Twitter API, JSON, SQLAlchemy - Requirements.txt
 import tweepy
 import json
 import database as db
@@ -9,7 +9,7 @@ import os
 with open('config.json') as config_file:
     config = json.load(config_file)
 
-# Authentication KEYS- PRIVATE
+# Authentication KEYS - PRIVATE
 consumer_key = os.environ.get("consumer_key-Twitter")
 consumer_secret = os.environ.get("consumer_secret-Twitter")
 access_token = os.environ.get("access_token-Twitter")
