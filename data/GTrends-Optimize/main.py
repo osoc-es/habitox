@@ -25,14 +25,18 @@ def getData(searchData):
     return data
 
 
-
+# Erase everything we have to mine properly
+with db.engine.connect() as con:
+    con.execute("DELETE FROM trends WHERE trends.id>=1;")
 
 # Grupos de Analisis
 groups={
     'teleenseñanza':['Moodle','Microsoft Teams','Zoom','Google Meet'],
     'teletrabajo':['Teletrabajo','ERTE','Microsoft Teams','Zoom','Google Meet'],
     'deporte':['Fitness','Cardio','Just Dance','Home Workout'],
-    'cocina':['Pan','Postres','Dieta','Levadura']
+    'cocina':['Pan','Postres','Dieta','Levadura'],
+    'coronavirus':["coronavirus"],
+    'paisesCovid':["China","Italia","España"]
 }
 
 """
