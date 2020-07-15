@@ -14,7 +14,9 @@ d = date(2020, 1, 1)
 # We get the next day(In order to reduce de amount of tweets in the Data Structure of the Librarie- Really bad choice of Data Structure....)
 dNext = d+timedelta(days=1)
 
-
+# Erase everything we have to mine properly
+with db.engine.connect() as con:
+    con.execute("DELETE FROM tweets WHERE tweets.id>=1;")
 
 while (datetime.now().date() == d):  # Until today
     print(d)
@@ -55,3 +57,10 @@ while (datetime.now().date() == d):  # Until today
     # Commit just in case
     db.session.commit()
 
+
+# Generate the views for Grafana
+with db.engine.connect() as con:
+    for i in keyWords:
+        view_name = "counter"+i
+        con.execute("CREATE OR REPLACE VIEW "+view_name +
+                    " AS SELECT date(t.date),COUNT(*) FROM tweets AS t WHERE t.`fulltext` LIKE '%"+i+"%' GROUP BY DATE(t.date);")
