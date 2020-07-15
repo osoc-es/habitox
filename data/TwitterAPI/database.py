@@ -10,8 +10,8 @@ password = os.environ.get("PASS_DB")
 server_ip = os.environ.get("IP_DB")
 database = os.environ.get("DB_DB")
 
-
-engine = create_engine('mysql://'+user+':'+password+'@'+server_ip+'/'+database)
+engine = create_engine('mysql://fbp:123456@localhost/osoc')
+#engine = create_engine('mysql://'+user+':'+password+'@'+server_ip+'/'+database)
 Session = sessionmaker(bind=engine)
 session = Session()
 Base = declarative_base()
