@@ -10,7 +10,7 @@ def getData(searchData):
     interval = '2019-01-01 '+ datetime.today().strftime('%Y-%m-%d')
     # Creamos la conexion a google trends
     pytrend = TrendReq(hl='en-US', tz=360)
-    """ Ahora, obtenemos las busquedas desde hoy hasta el 1 de febrero. Solo el atributo kw_list es obligatorio. 
+    """ Ahora, obtenemos las busquedas desde hoy hasta el 1 de Enero. Solo el atributo kw_list es obligatorio. 
         timeframe: Intervalo de tiempo. Por defecto va desde hoy hasta hace 5 años
         geo: Localizacion, alpha-2 code del pais. Spain seria 'ES'
         gprop: Tipo de busqueda (web, imagenes, youtube...). Vacio es busqueda de web
