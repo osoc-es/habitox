@@ -35,7 +35,7 @@ class news(db.Base):
     __tablename__ = 'news'
     id=Column(Integer,primary_key=True,autoincrement=True)
     date = Column(DateTime)
-    key_words = Column(String(128))
+    key_words = Column(String(255))
     description = Column(Text)
 
     def __init__(self,date,key_words,description):

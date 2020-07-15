@@ -5,10 +5,10 @@ import os
 
 
 # Main Engine for MySQL
-user = os.environ.get("USER_DB")
-password = os.environ.get("PASS_DB")
-server_ip = os.environ.get("IP_DB")
-database = os.environ.get("DB_DB")
+user = "fbp"
+password = "123456"
+server_ip = "localhost"
+database = "osoc"
 
 engine = create_engine('mysql://'+user+':'+password+'@'+server_ip+'/'+database)
 Session = sessionmaker(bind=engine)
