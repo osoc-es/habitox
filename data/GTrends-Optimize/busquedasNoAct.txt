@@ -6,7 +6,8 @@ groups={
     'Tartas':['Tarta de chocolate','Tarta de manzana','Tarta de queso','Tarta tres chocolates']
 }
 
+Ejecutar este segundo grupo con gprop = 'youtube' (son búsquedas de YouTube)
 groups={
     'Resistiré':['Resistiré','Dúo Dinámico'],
+	'YTKids':['Peppa Pig','Patrulla Canina'],
 }
-Ejecutar con gprop = 'youtube'
