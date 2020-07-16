@@ -31,12 +31,10 @@ with db.engine.connect() as con:
 
 # Grupos de Analisis
 groups={
-    'teleenseñanza':['Moodle','Microsoft Teams','Zoom','Google Meet'],
-    'teletrabajo':['Teletrabajo','ERTE','Microsoft Teams','Zoom','Google Meet'],
-    'deporte':['Fitness','Cardio','Just Dance','Home Workout'],
-    'cocina':['Pan','Postres','Dieta','Levadura'],
-    'coronavirus':["coronavirus"],
-    'paisesCovid':["China","Italia","España"]
+    'Deporte Compras':[’Mancuerna’,’Bici estática’,’Cinta correr’],
+	'Postres':['Tarta','Torrijas','Brownie','Bizcocho',’Galletas’],
+	'Tartas':['Tarta de chocolate','Tarta de manzana','Tarta de queso','Tarta tres chocolates'],
+	'IMV':['IMV','Ingreso Minimo Vital']
 }
 
 """
