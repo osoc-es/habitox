@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+.div.container-fluid {
+  width: 96%;
+  max-width: 960px;
+  margin: 0 auto; /* to center the container */
+}
+.topnav>img {
+  width: 100%;
+    height:auto;
+}
+
 
 
 nav ul {
