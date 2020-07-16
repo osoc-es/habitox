@@ -18,7 +18,8 @@ def getData(searchData):
     pytrend.build_payload(
         kw_list = searchData,
         geo = 'ES',
-        timeframe = interval
+        timeframe = interval,
+        gprop = 'youtube'
         )
     #Extraemos los datos de interes a lo largo del tiempo
     data = pytrend.interest_over_time()
@@ -31,12 +32,8 @@ with db.engine.connect() as con:
 
 # Grupos de Analisis
 groups={
-    'teleenseñanza':['Moodle','Microsoft Teams','Zoom','Google Meet'],
-    'teletrabajo':['Teletrabajo','ERTE','Microsoft Teams','Zoom','Google Meet'],
-    'deporte':['Fitness','Cardio','Just Dance','Home Workout'],
-    'cocina':['Pan','Postres','Dieta','Levadura'],
-    'coronavirus':["coronavirus"],
-    'paisesCovid':["China","Italia","España"]
+    'Resistiré':['Resistiré','Dúo Dinámico'],
+	'YTKids':['Peppa Pig','Patrulla Canina'],
 }
 
 """
