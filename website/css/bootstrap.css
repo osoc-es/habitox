@@ -6,7 +6,7 @@
 }
 
 
-}
+
 nav ul {
     margin-left: 500px;
     display:flex;
@@ -245,8 +245,9 @@ hr {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 0.5rem;
-    font-family: 
+    
 }
+
 .text-faded {
   color: rgba(255, 255, 255, 0.3);
 }
@@ -10574,7 +10575,7 @@ a.text-dark:hover, a.text-dark:focus {
 		-ms-justify-content: space-between;
 		justify-content: center;
 	}
-		.flex. article {
+		.flex.article {
 			position: center;
 			width: 28%;
             display: center;
